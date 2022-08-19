@@ -31,12 +31,10 @@ void setup()
   Serial.print("Connected, IP address: ");
   Serial.println(WiFi.localIP().toString());
 
-  MDNS.begin(WiFi.getHostname());
-  if (!MDNS.begin("tiltbridge")) {
+  if (!MDNS.begin("testhost")) {
     Serial.println("Error setting up MDNS responder.");
   } else {
-      MDNS.setInstanceName("TiltBridge");
-      MDNS.addService("_tiltbridge", "_tcp", 80);
+      MDNS.addService("_testservice", "_tcp", 80);
   }
   Serial.println("mDNS Initialized");
 }
